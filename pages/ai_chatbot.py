@@ -102,12 +102,14 @@ BASE YOUR ASSESSMENT ON:
 
 now use the above standarts as reference and understand the case well...
 use the context of the case and its medical and social risk porfile and answer the query as supportively as possible using external info and the info from the user profile as well
+prioritize answering their questions and explain deeply and make sure they understand over showing them you know them
+use only clear and comprehensive language
 
 ---OUTPUT FORMAT---
 Respond ONLY with a valid JSON object. No preamble, no explanation, no markdown backticks.
 
 {{
-    "answer": <6-7 lines answering their query but reasonably you can use 10 lines but not more than that>
+    "answer": <6-7 lines recaping their case and then answering their query with 10 lines....these 10 lines purely dedicated to answring the query>
 }}
 """
     response=model.generate_content(prompt)
