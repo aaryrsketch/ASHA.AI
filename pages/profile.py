@@ -300,7 +300,7 @@ with tab8:
     st.title("Hi...my name is ASHA.AI !!")
     st.text("Im your personal health care companion. I’m here to support you with gentle, reliable guidance for pregnancy, motherhood, child care, family health, nutrition, emotional well-being, and social support.")
     st.text("I will always respond with care, patience, and respect. My goal is to help you feel informed, supported, and confident while guiding you toward proper medical care whenever needed.You are not alone — I’m here to listen, guide, and support you with kindness and care")
-    query=st.chat_input("ask me anything")
+    query=st.text_input("ask me anything")
     if st.button("answer"):
         answer=query_answer(medprofile,medical_glossary,p,social_glossary,query)
         st.text(answer["answer"])

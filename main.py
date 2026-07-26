@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(layout="wide")
 
 st.title("ASHA.AI")
-st.subheader("Simplifying healthcare workflows at the grassroots level.")
+st.subheader(" AI-Powered Maternal Health Risk Assessment")
 
 @st.cache_resource
 def init_supabase():
@@ -65,3 +65,4 @@ if not isloggedin():
     isloggedin()
 else:
     st.switch_page("pages/profiles_page.py")
+st.markdown(" ASHA helps frontline health workers identify high-risk pregnancies early — right at the point of care. Built for ANM/ASHA workers, it takes routine checkup data and instantly flags risk level, backed by an AI model trained on maternal health patterns. Each assessment comes with a clear, plain-language report (powered by Google's Gemini AI) that health workers can act on immediately or export as a printable PDF for records and referrals.")
