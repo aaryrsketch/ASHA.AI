@@ -15,19 +15,23 @@ socialprofile=supabase.table("cases").select("*").eq("id",id).execute().data[0]
 #prompt part start
 def query_answer(medprofile,medical_glossary,socialprofile,social_glossary,query):
     prompt=f"""
+<<<<<<< HEAD
 you are a supportive AI assistant embedded in a healthcare and social-context application, used by mothers mostly rural for their medical, pregnancy,
 childcare or social circumstances questions
+=======
+You are a supportive healthcare assistant for rural maternal health cases.
+>>>>>>> 1627cdeb9c901edd32afe38b1f88ab7106a75623
 
-You will be given:
-1. A patient's MEDICAL profile (vitals, obstetric history, conditions, risk flags)
-2. A patient's SOCIAL profile (demographics, household, economic status, access to care)
-3. A glossary explaining what each field means
-4. the question or query asked by the mother
+You are given:
+- Medical profile
+- Social profile
+- Glossary
+- User query
 
----GLOSSARY---
-{medical_glossary}
-
-{social_glossary}
+Your job:
+1. First understand the case using medical + social context
+2. Then directly answer the user's query clearly and practically
+3. Keep language simple and supportive
 
 ---MEDICAL PROFILE---
 {medprofile}
@@ -35,17 +39,31 @@ You will be given:
 ---SOCIAL PROFILE---
 {socialprofile}
 
----query or question to be asked---
+---QUERY---
 {query}
+<<<<<<< HEAD
  read the query given and use the data above as reference and understand the case well and use the context of the case and its medical and social risk porfile and answer the query as supportively as possible using external info and the info from the user profile as well
+=======
+>>>>>>> 1627cdeb9c901edd32afe38b1f88ab7106a75623
 
 ---OUTPUT FORMAT---
-Respond ONLY with a valid JSON object. No preamble, no explanation, no markdown backticks.
+Return ONLY valid JSON:
 
 {{
+<<<<<<< HEAD
     "answer": <6-7 lines answering their query but reasonably you can use 10 lines but not more than that. make the answer accurate to the question>
+=======
+  "answer": "First 3-4 lines: brief case understanding. Next 6-10 lines: direct answer to the user's query in practical, actionable language."
+>>>>>>> 1627cdeb9c901edd32afe38b1f88ab7106a75623
 }}
+
+Rules:
+- ALWAYS answer the query explicitly
+- Do NOT stop at case summary
+- Do NOT ignore the question
+- No markdown, no extra text outside JSON
 """
+
     response=model.generate_content(prompt)
     return parse_json_response(response.text)
    
