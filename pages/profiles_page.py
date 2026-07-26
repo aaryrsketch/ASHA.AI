@@ -23,7 +23,7 @@ if res.data["role"]=="Accredited Social Health Activist (ASHA)":
     st.metric("TOTAL CASES", f"{case_no}","one new case this week !!")
     st.write("---")
     if st.button("Add profile"):
-        st.switch_page("pages/New_Profile.py")
+        st.switch_page("pages/new_Profile.py")
     
 elif res.data["role"]=="Auxiliary Nurse Midwife (ANM)":
     st.title("ANM Dashboard")
